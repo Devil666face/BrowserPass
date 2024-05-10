@@ -1,0 +1,6 @@
+/venv
+__pycache__
+/main.onefile-build
+/main.build
+/main.dist
+/main.exe
