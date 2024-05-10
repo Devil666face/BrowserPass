@@ -1,13 +1,17 @@
 import csv
+import tempfile
+from pathlib import Path
 from firefox.decrypt import decrypt as firefox_decrypt
 from chrome.decrypt import decrypt as chrome_decrypt
 
 if __name__ == "__main__":
+    temp_dir = tempfile.gettempdir()
+    # C:\Users\Docker\AppData\Local\Temp
+    file_path = Path(temp_dir) / "temp.csv"
     chrome_creds = chrome_decrypt()
     firefox_creds = firefox_decrypt()
-
     with open(
-        "temp.csv", mode="w", newline="", encoding="utf-8"
+        file_path, mode="w", newline="", encoding="utf-8"
     ) as decrypt_password_file:
         csv_writer = csv.writer(decrypt_password_file, delimiter="\t")
         for cred_dict in chrome_creds + firefox_creds:
